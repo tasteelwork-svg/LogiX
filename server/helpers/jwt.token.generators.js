@@ -6,7 +6,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
 
-export const generateToken = (user) => {
+export const GenerateToken = (user) => {
     return jwt.sign(
         {
             userId: user._id,
@@ -17,7 +17,7 @@ export const generateToken = (user) => {
     );
 }
 
-export const generateRefreshToken = (user) => {
+export const GenerateRefreshToken = (user) => {
     return jwt.sign(
         {
             userId: user._id,
