@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import Model from "../models/index.js"
-import {generateRefreshToken, generateToken} from "../helpers/jwtTokenGenerator.js";
-import {GenericService} from "./Generic/generic.service.js";
+import {GenerateRefreshToken, GenerateToken} from "../helpers/jwt.token.generators.js";
+import {GenericService} from "./generic/generic.service.js";
 
 export const AuthService = {
 
@@ -31,8 +31,8 @@ export const AuthService = {
         const checkPassword = await bcrypt.compare(password, user.password);
         if(!checkPassword) throw Error("Password is incorrect");
 
-        const token = await generateToken(user);
-        const refreshToken = await generateRefreshToken(user);
+        const token = await GenerateToken(user);
+        const refreshToken = await GenerateRefreshToken(user);
 
         return {user, token, refreshToken};
     },
@@ -63,7 +63,6 @@ export const AuthService = {
 
         return { message: "Password changed successfully" };
     }
-
 
 };
 

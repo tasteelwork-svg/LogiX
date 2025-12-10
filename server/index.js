@@ -20,7 +20,6 @@ for (const r of routers) {
     app.use(r.path, r.route);
 }
 
-
 // ------------------ Start Server ------------------
 const PORT = process.env.PORT
 
